@@ -16,7 +16,7 @@
           <input matInput type="text" placeholder="DESCRIÇÃO" formControlName="descricao">
         </mat-form-field>
 
-        <button type="submit" mat-button color="primary">Salvar</button>
+        <button type="submit" mat-button color="primary" [disabled]="loginForm.invalid">Salvar</button>
 
       </form>
     </mat-card-content>
