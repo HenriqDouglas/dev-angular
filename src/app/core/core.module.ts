@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApolloConfigModule } from '../apollo-config.module';
-import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -12,9 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ApolloConfigModule,
-    MatListModule,
-    MatToolbarModule
+    ApolloConfigModule
   ]
 })
 export class CoreModule {
