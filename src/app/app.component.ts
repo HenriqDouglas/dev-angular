@@ -13,8 +13,8 @@ export class AppComponent {
   constructor(
     private apollo: Apollo
   ) {
-    this.createCargo();
-    this.allCargos();
+    // this.createCargo();
+    // this.allCargos();
   }
 
   allCargos(): void {
@@ -33,7 +33,7 @@ export class AppComponent {
 
   }
 
-  createCargo(): void{
+  createCargo(): void {
 
     this.apollo.mutate({
       mutation: gql `
