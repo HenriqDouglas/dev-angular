@@ -6,14 +6,14 @@
     </mat-card-title>
 
     <mat-card-content>
-      <form>
+      <form (submit)="onSubmit()" [formGroup]="loginForm">
 
         <mat-form-field>
-          <input matInput type="text" placeholder="NOME">
+          <input matInput type="text" placeholder="NOME" formControlName="nome">
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="text" placeholder="DESCRIÇÃO">
+          <input matInput type="text" placeholder="DESCRIÇÃO" formControlName="descricao">
         </mat-form-field>
 
         <button type="submit" mat-button color="primary">Salvar</button>
