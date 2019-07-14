@@ -10,6 +10,9 @@
 
         <mat-form-field>
           <input matInput type="text" placeholder="NOME" formControlName="nome">
+          <mat-error *ngIf="loginForm.get('nome').hasError('required')">
+            Campo obrigatório!
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field>
