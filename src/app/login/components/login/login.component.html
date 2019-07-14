@@ -2,7 +2,7 @@
   <mat-card>
 
     <mat-card-title>
-      <mat-toolbar color="primary">Novo Cargo</mat-toolbar>
+      <mat-toolbar color="primary">{{ configs.actionText }}</mat-toolbar>
     </mat-card-title>
 
     <mat-card-content>
@@ -10,7 +10,7 @@
 
         <mat-form-field>
           <input matInput type="text" placeholder="NOME" formControlName="nome">
-          <mat-error *ngIf="loginForm.get('nome').hasError('required')">
+          <mat-error *ngIf="nome.hasError('required')">
             Campo obrigatório!
           </mat-error>
         </mat-form-field>
@@ -19,7 +19,15 @@
           <input matInput type="text" placeholder="DESCRIÇÃO" formControlName="descricao">
         </mat-form-field>
 
-        <button type="submit" mat-button color="primary" [disabled]="loginForm.invalid">Salvar</button>
+        <mat-form-field *ngIf="!configs.isLogin">
+            <input matInput type="text" placeholder="PERICULOSIDADE" formControlName="periculosidade">
+            <mat-error *ngIf="periculosidade.hasError('required')">
+              Campo obrigatório!
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-button color="primary" [disabled]="loginForm.invalid">{{ configs.actionText }}</button>
+        <button type="button" mat-button color="primary" (click)="changeAction()">{{ configs.buttonActionText }}</button>
 
       </form>
     </mat-card-content>
