@@ -19,7 +19,7 @@ export class ApolloConfigModule {
     private apollo: Apollo,
     private httpLink: HttpLink
   ) {
-      const uri = 'http://200.223.245.18.65508/graphql';
+      const uri = 'http://10.10.1.113:8000/graphql';
       const http = httpLink.create({uri});
 
       const linkError = onError(({ graphQLErrors, networkError }) => {
