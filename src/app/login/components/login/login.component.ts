@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-// import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
+import { takeWhile } from 'rxjs/operators';
 
 import { AuthService } from 'src/app/core/services/auth.service';
 import { ErrorService } from 'src/app/core/services/error.service';
-import { takeWhile } from 'rxjs/operators';
 
 @Component({
     selector: 'app-login',
@@ -27,8 +27,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     constructor(
         private authService: AuthService,
         private errorService: ErrorService,
-        private formBuilder: FormBuilder
-        // private snackbar: MatSnackBar
+        private formBuilder: FormBuilder,
+        private snackbar: MatSnackBar
     ) { }
 
     ngOnInit() {
@@ -58,7 +58,8 @@ export class LoginComponent implements OnInit, OnDestroy {
                 console.log('redirecionando... ', res);
             },
             err => {
-                console.log(this.errorService.getErrorMessage(err));
+                console.log(err);
+                this.snackbar.open(this.errorService.getErrorMessage(err), 'Okay', {duration: 5000, verticalPosition: 'top'} );
             },
             () => console.log('Observable copletado')
         );

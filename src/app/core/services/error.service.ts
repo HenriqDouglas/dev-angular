@@ -7,7 +7,7 @@ export class ErrorService {
 
   constructor() { }
 
-    getErrorMessage(error: any): string {
+    getErrorMessage(error: Error): string {
         const message: any = error.message.split(': ');
         return message[message.length - 1];
     }

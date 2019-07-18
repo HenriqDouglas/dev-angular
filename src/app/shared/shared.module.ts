@@ -6,8 +6,8 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatInputModule,
-//   MatSnackBar,
-  MatToolbarModule
+  MatToolbarModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 @NgModule({
@@ -17,7 +17,7 @@ import {
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    // MatSnackBar,
+    MatSnackBarModule,
     MatToolbarModule,
     ReactiveFormsModule
   ]
