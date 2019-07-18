@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 // import { MatSnackBar } from '@angular/material';
 
 import { AuthService } from 'src/app/core/services/auth.service';
+import { ErrorService } from 'src/app/core/services/error.service';
 import { takeWhile } from 'rxjs/operators';
 
 @Component({
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     constructor(
         private authService: AuthService,
+        private errorService: ErrorService,
         private formBuilder: FormBuilder
         // private snackbar: MatSnackBar
     ) { }
@@ -55,7 +57,9 @@ export class LoginComponent implements OnInit, OnDestroy {
             res => {
                 console.log('redirecionando... ', res);
             },
-            err => {},
+            err => {
+                console.log(this.errorService.getErrorMessage(err));
+            },
             () => console.log('Observable copletado')
         );
 

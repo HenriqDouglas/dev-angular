@@ -31,7 +31,8 @@ export class ApolloConfigModule {
           );
         }
         if (networkError) { console.log(`[Network error]: ${networkError}`); }
-      });
+
+    });
 
       apollo.create({
         link: ApolloLink.from([
