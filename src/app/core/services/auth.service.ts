@@ -13,10 +13,7 @@ export class AuthService {
   constructor(
     private apollo: Apollo
 
-  ) {
-    this.logarUsuario({login: 'henrique', password: 'programacao'})
-    .subscribe(res => console.log('Logar Usuário: ', res));
-  }
+  ) {}
 
     logarUsuario(variables: {login: string, password: string}): Observable<{id: string, token: string}> {
         return this.apollo.mutate({

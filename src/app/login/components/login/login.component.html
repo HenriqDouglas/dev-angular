@@ -1,45 +1,47 @@
 <div class="login-container">
-  <mat-card>
+    <mat-card>
 
-    <mat-card-title>
-      <mat-toolbar color="primary">{{ configs.actionText }}</mat-toolbar>
-    </mat-card-title>
+        <mat-card-title>
+            <mat-toolbar color="primary">{{ configs.actionText }}</mat-toolbar>
+        </mat-card-title>
 
-    <mat-card-content>
-      <form (submit)="onSubmit()" [formGroup]="loginForm">
+        <mat-card-content>
+            <form (submit)="onSubmit()" [formGroup]="loginForm">
 
-        <mat-form-field *ngIf="!configs.isLogin">
-            <input matInput type="email" placeholder="E-MAIL" formControlName="email">
-            <mat-error *ngIf="email.hasError('required')">
-              Campo obrigatório!
-            </mat-error>
-            <mat-error *ngIf="email.hasError('email')">
-                Endereço de e-mail inválido!
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field *ngIf="!configs.isLogin">
+                    <input matInput type="email" placeholder="E-MAIL" formControlName="email">
+                    <mat-error *ngIf="email.hasError('required')">
+                        Campo obrigatório!
+                    </mat-error>
+                    <mat-error *ngIf="email.hasError('email')">
+                        Endereço de e-mail inválido!
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-          <input matInput type="text" placeholder="LOGIN" formControlName="login">
-          <mat-error *ngIf="login.hasError('required')">
-            Campo obrigatório!
-          </mat-error>
-        </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="LOGIN" formControlName="login">
+                    <mat-error *ngIf="login.hasError('required')">
+                        Campo obrigatório!
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-          <input matInput type="password" placeholder="PASSWORD" formControlName="password">
-          <mat-error *ngIf="password.hasError('required')">
-            Campo obrigatória!
-          </mat-error>
-          <mat-error *ngIf="password.hasError('minlength')">
-              Minínmo 5 caracteres!
-          </mat-error>
-        </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="password" placeholder="PASSWORD" formControlName="password">
+                    <mat-error *ngIf="password.hasError('required')">
+                        Campo obrigatória!
+                    </mat-error>
+                    <mat-error *ngIf="password.hasError('minlength')">
+                        Minínmo 5 caracteres!
+                    </mat-error>
+                </mat-form-field>
 
-        <button type="submit" mat-button color="primary" [disabled]="loginForm.invalid">{{ configs.actionText }}</button>
-        <button type="button" mat-button color="primary" (click)="changeAction()">{{ configs.buttonActionText }}</button>
+                <button type="submit" mat-button color="primary"
+                    [disabled]="loginForm.invalid">{{ configs.actionText }}</button>
+                <button type="button" mat-button color="primary"
+                    (click)="changeAction()">{{ configs.buttonActionText }}</button>
 
-      </form>
-    </mat-card-content>
+            </form>
+        </mat-card-content>
 
-  </mat-card>
+    </mat-card>
 </div>

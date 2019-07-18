@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class LoginComponent implements OnInit {
 
     loginForm: FormGroup;
+
     configs = {
         isLogin: true,
         actionText: 'Login',
@@ -32,7 +33,6 @@ export class LoginComponent implements OnInit {
 
     createForm(): void {
         this.loginForm = this.formBuilder.group({
-            email: ['', [Validators.required, Validators.email]],
             login: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(5)]]
         });
@@ -41,9 +41,14 @@ export class LoginComponent implements OnInit {
     onSubmit(): void {
         console.log(this.loginForm.value);
 
-        // const operation =
-        // (this.configs.isLogin)
-        // ? this.auth
+        const operation =
+            (this.loginForm)
+                ? this.authService.logarUsuario(this.loginForm.value)
+                : this.authService.logarUsuario(this.loginForm.value);
+
+        operation.subscribe(res => {
+            console.log('redirecionando... ', res);
+        });
 
     }
 
@@ -52,8 +57,8 @@ export class LoginComponent implements OnInit {
         this.configs.actionText = !this.configs.isLogin ? 'Cadastrar' : 'Login';
         this.configs.buttonActionText = !this.configs.isLogin ? 'Já possui conta' : 'Não possui conta';
         !this.configs.isLogin ?
-        this.loginForm.addControl('email', this.emailControl) :
-        this.loginForm.removeControl('email');
+            this.loginForm.addControl('email', this.emailControl) :
+            this.loginForm.removeControl('email');
     }
 
     get email(): FormControl { return this.loginForm.get('email') as FormControl; }
